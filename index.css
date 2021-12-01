@@ -1,6 +1,10 @@
 body {
-  background: #ccccff;
-
+  background-image:url(1618607066_16-funart_pro-p-oboi-fon-pikselnoe-nebo-16.png);
+  background-size: 1920px 1080px;
+  position: fixed;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  overflow-y: scroll;
 }
 
 .index-page {
@@ -10,6 +14,10 @@ body {
   place-items: center;
 }
 
+.h2{
+  color:orange;
+  font-family: Arial;
+}
 .button1 {
   margin-left: 60px;
   margin-top: 30px;
@@ -17,6 +25,7 @@ body {
   height: 80px;
   font-size: 14px;
   font-weight: 700;
+  background: #beb6b6;
 }
 
 .button2 {
@@ -26,6 +35,7 @@ body {
   height: 80px;
   font-size: 14px;
   font-weight: 700;
+  background: #beb6b6;
 }
 
 .button3 {
@@ -35,16 +45,35 @@ body {
   height: 80px;
   font-size: 14px;
   font-weight: 700;
+  background: #beb6b6;
+}
+
+.button1:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.button2:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.button3:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .border {
   
   width: 250px;
   height: 450px;
-  margin-top: 200px;
+  margin-top: 100px;
 
 
-  border: 10px solid #555;
+  border: 10px solid #00bfff;
 
 }
 
@@ -52,3 +81,20 @@ body {
   text-align: center;
 }
 
+.text1{
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 5px solid rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  width: 220px;
+}
+
+h1{
+ font-family: Arial; 
+}
+p {
+  font-family: Arial; 
+}
