@@ -3,10 +3,33 @@ document.addEventListener('readystatechange', () => {
   if (document.readyState === 'complete') game();
 })
 
+document.addEventListener('keyup', function (event) {
+  console.log('Key: ', event.key);
+  console.log('keyCode: ', event.keyCode);
+});
+
+const rowNumber = 30;
+const columnNumber = 40;
+
+const playerShape = [
+  { x: 16, y: 26 },
+  { x: 16, y: 27 },
+  { x: 16, y: 28 },
+  { x: 17, y: 26 },
+  { x: 17, y: 27 },
+  { x: 17, y: 28 },
+];
+
+let moveDirection = null;
+
+const leftBorderX = 10;
+const rightBorderX = 30;
+
+
 function game() {
   var div = document.getElementById('border');
-  for (var i = 0; i < 30; i++) { // строки
-    for (var j = 0; j < 40; j++) { // столбца
+  for (var i = 0; i < rowNumber; i++) { // строки
+    for (var j = 0; j < columnNumber; j++) { // столбца
       var newDiv = document.createElement('div');
       newDiv.id = `${i}  ${j}`;
       newDiv.classList.add('areabox');
@@ -16,39 +39,54 @@ function game() {
 
     }
   }
-  function square() {
-    for (var i = 0; i < 30; i++) { // строки
-      if (i === 26 || i === 27 || i===25 || i==28 || i==24) {
-        for (var j = 16; j < 20; j++) { 
-          // столбцы
-          document.getElementById(`${i}  ${j}`).classList.remove('areabox');
-          document.getElementById(`${i}  ${j}`).classList.add('card');
+  // render left border
+  for (let i = 0; i < rowNumber; i += 1) {
+    document.getElementById(`${i}  ${leftBorderX}`).classList.remove('areabox');
+    document.getElementById(`${i}  ${leftBorderX}`).classList.add('cell--border');
+  }
+  // render right border
+  for (let i = 0; i < rowNumber; i += 1) {
+    document.getElementById(`${i}  ${rightBorderX}`).classList.remove('areabox');
+    document.getElementById(`${i}  ${rightBorderX}`).classList.add('cell--border');
+  }
+
+  function render() {
+    // remove player from field
+    for (const point of playerShape) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('card');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');
+    }
+
+    // move player
+    
+    if (moveDirection !== null) {
+      for (const point of playerShape) {
+        if (moveDirection === 'RIGHT') point.x += 1;
+        else if (moveDirection === 'DOWN') point.y += 1;
+        else if (moveDirection === 'LEFT') point.x -= 1;
+        else if (moveDirection === 'UP') point.y -= 1;
+        if (10 > playerShape > 0 ){
+          document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+          document.getElementById(`${i}  ${leftBorderX}`).classList.add('cell--border');
         }
       }
     }
-    if (isGameActive) { setTimeout(square, 1000); }
-  }
-  setTimeout(square, 1000);
-  function moveRect(e) {
-
-    var block = document.getElementById("card")
-    var cs = window.getComputedStyle("card");
-
-    var left = parseInt(cs.marginLeft);
-    var top = parseInt(cs.marginTop);
-
-    switch (e.key) {
-      case "ArrowLeft": // нажатие клавиши влево
-        if (left > 0)
-          block.style.marginLeft = left - 10 + "px";
-        break;
-      case "ArrowTop":
-        if (top > 0)
-          blueRect.style.marginTop = top - 10 + "px";
-        break;
-      case "ArrowLeft":
-        if (left > 0)
-          block.style.marginLeft = left - 10 + "px";
+    // render player
+    for (const point of playerShape) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('card');
     }
+
+    if (isGameActive) { setTimeout(render, 1000); }
   }
+  setTimeout(render, 1000);
 }
+
+document.addEventListener('keydown', function (event) {
+  if (event.key == 'ArrowRight') moveDirection = 'RIGHT';
+  else if (event.key == 'ArrowDown') moveDirection = 'DOWN';
+  else if (event.key == 'ArrowLeft') moveDirection = 'LEFT';
+  else if (event.key == 'ArrowUp') moveDirection = 'UP';
+  else moveDirection = null;
+});
+

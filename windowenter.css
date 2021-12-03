@@ -1,52 +1,25 @@
-
-
-.border
-{
-
-background: #808080;
-outline: 5px solid rgb(1, 255, 1);
-padding: 0;
-width: 800px;
-height: 600px;
-margin-top: 100px;
-display: grid;
-grid-template-columns: repeat(40,1fr);
-grid-template-rows: repeat(30,1fr);
+.border {
+  background: #808080;
+  outline: 5px solid rgb(1, 255, 1);
+  padding: 0;
+  width: 800px;
+  height: 600px;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(40, 1fr);
+  grid-template-rows: repeat(30, 1fr);
 }
+
 .card {
   background-color: red;
 }
-.border2
-{
-  z-index: 390;
-  
-  position: absolute;
-  height: 610px;
-  top:140px;
-  
-  right:1200px;
-  outline: 5px solid rgb(198, 204, 198);
-  
-  
-}
 
-.border3
-{
-
-  z-index: 390;
-  
-  position: absolute;
-  height: 609px;
-  top:2px;
-  left: 534px;
- 
-  outline: 5px solid rgb(198, 204, 198);
-
+.cell--border {
+  background: rgb(198, 204, 198);
 }
 
 
-.center1
-{
+.center1 {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: 1fr;
@@ -54,82 +27,77 @@ grid-template-rows: repeat(30,1fr);
 }
 
 
-.background
-{
- 
-width: 1920px;
-height: 1080px;
-background-image: url(1587644641_1-p-pikselnie-foni-5.jpg);
-background-position: left bottom;
-overflow: hidden;
-background-repeat: repeat-x;
+.background {
+
+  width: 1920px;
+  height: 1080px;
+  background-image: url(1587644641_1-p-pikselnie-foni-5.jpg);
+  background-position: left bottom;
+  overflow: hidden;
+  background-repeat: repeat-x;
 
 
 
 }
 
-*{
+* {
   margin: 0;
 }
-#square
-{
-  width:100px;
-  height:100px ;
+
+#square {
+  width: 100px;
+  height: 100px;
   background: red;
   position: absolute;
 
 }
 
 
-.point 
-{
+.point {
   position: absolute;
   top: 10px;
   right: 1220px;
-  left:550px;
+  left: 550px;
 }
 
-.op
-{
- 
+.op {
+
   text-align: center;
   padding: 300px 400px;
 }
 
 .op .point {
-  font-size:40px;
-  font-weight:bold;
+  font-size: 40px;
+  font-weight: bold;
   line-height: 50px;
-  color:#FFF;
+  color: #FFF;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
 }
 
-.op2
-{
+.op2 {
   text-align: center;
   padding: 300px 600px;
 }
 
-.point2 
-{
+.point2 {
   position: absolute;
   top: 10px;
   right: -65px;
-  left:550px;
+  left: 550px;
 }
-.op2 .point2{
-  font-size:40px;
-  font-weight:bold;
+
+.op2 .point2 {
+  font-size: 40px;
+  font-weight: bold;
   line-height: 50px;
-  color:#FFF;
+  color: #FFF;
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
 }
 
-.areabox
-{
-  
+.areabox {
+
   border: 1px solid #808080;
   width: 18px;
   height: 18px;
