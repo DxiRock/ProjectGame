@@ -12,12 +12,12 @@ const rowNumber = 30;
 const columnNumber = 40;
 
 const playerShape = [
-  { x: 16, y: 26 },
-  { x: 16, y: 27 },
-  { x: 16, y: 28 },
-  { x: 17, y: 26 },
-  { x: 17, y: 27 },
-  { x: 17, y: 28 },
+  { x: 19, y: 26 },
+  { x: 19, y: 27 },
+  { x: 19, y: 28 },
+  { x: 20, y: 26 },
+  { x: 20, y: 27 },
+  { x: 20, y: 28 },
 ];
 
 let moveDirection = null;
@@ -53,12 +53,12 @@ const agr2 = [
 ];
 
 const agr3 = [
-  { x: 14, y: 5 },
-  { x: 14, y: 6 },
-  { x: 14, y: 7 },
   { x: 15, y: 5 },
   { x: 15, y: 6 },
   { x: 15, y: 7 },
+  { x: 16, y: 5 },
+  { x: 16, y: 6 },
+  { x: 16, y: 7 },
 ];
 
 
@@ -75,16 +75,17 @@ function game() {
 
     }
   }
+    
+  
   // render left border
   for (let i = 0; i < rowNumber; i += 1) {
     document.getElementById(`${i}  ${leftBorderX}`).classList.remove('areabox');
     document.getElementById(`${i}  ${leftBorderX}`).classList.add('cell--border');
-
   }
   // render right border
   for (let i = 0; i < rowNumber; i += 1) {
-    document.getElementById(`${i}  ${rightBorderX}`).classList.remove('areabox');
-    document.getElementById(`${i}  ${rightBorderX}`).classList.add('cell--border');
+    document.getElementById(`${i}  ${rightBorderX}`).classList.remove('areabox');// находится ширина и высота границы
+    document.getElementById(`${i}  ${rightBorderX}`).classList.add('cell--border');// 
   }
 
   function render() {
@@ -94,14 +95,56 @@ function game() {
       document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');
     }
 
+    for(const point of agr) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('card1');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
+    }
+
+    for(const point of agr1) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('card2');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
+    }
+
+    for(const point of agr2) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('card3');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
+    }
+
+    for(const point of agr3) {
+      document.getElementById(`${point.y}  ${point.x}`).classList.remove('card4');
+      document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
+    }
+
+   
+    
+     //object movement
+
+
+  for(const point of agr){
+  if(agr) point.y +=3;
+  
+}
+
+for(const point of agr1){
+  if(agr) point.y +=3;
+}
+
+for(const point of agr2){
+  if(agr) point.y +=3;
+}
+
+for(const point of agr3){
+  if(agr) point.y +=3;
+}
+    
     let gameOver = false;
     
     if (moveDirection !== null) {
       for (const point of playerShape) {
-        if (moveDirection === 'RIGHT') point.x += 1;
-        else if (moveDirection === 'DOWN') point.y += 1;
-        else if (moveDirection === 'LEFT') point.x -= 1;
-        else if (moveDirection === 'UP') point.y -= 1;
+        if (moveDirection === 'RIGHT') point.x += 3;
+        else if (moveDirection === 'DOWN') point.y += 3;
+        else if (moveDirection === 'LEFT') point.x -= 3;
+        else if (moveDirection === 'UP') point.y -= 3;
         
         document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
         document.getElementById(`${point.y}  ${point.x}`).classList.add('card');
@@ -116,9 +159,9 @@ function game() {
       alert("Game Over");
       location.reload();
     }
+    
 
-
-    // render player
+    // render player    
     for (const point of playerShape) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card');
@@ -145,12 +188,12 @@ function game() {
     }
 
 
-
-    if (isGameActive) { setTimeout(render, 1000); }
+// render time
+    if (isGameActive) { setTimeout(render, 1000);}
   }
   setTimeout(render, 1000);
-}
 
+}
 document.addEventListener('keydown', function (event) {
   if (event.key == 'ArrowRight') moveDirection = 'RIGHT';
   else if (event.key == 'ArrowDown') moveDirection = 'DOWN';
@@ -158,4 +201,8 @@ document.addEventListener('keydown', function (event) {
   else if (event.key == 'ArrowUp') moveDirection = 'UP';
   else moveDirection = null;
 });
+
+
+
+  
 
