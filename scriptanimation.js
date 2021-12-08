@@ -115,27 +115,34 @@ function game() {
       document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
     }
 
-   
-    
+
      //object movement
 
-
   for(const point of agr){
-  if(agr) point.y +=3;
-  
+  if(agr > 15 && agr < 4 && agr > -1 && agr < 4) point.y +=3;
+  console.log("agr");
+  document.getElementById(`${point.y}  ${point.x}`).classList.add('areabox');  
 }
 
-for(const point of agr1){
-  if(agr) point.y +=3;
+for(const point of agr1){ 
+  if(agr > -1 && agr < 4 && agr > -1 && agr > 4) point.y +=3;
+
+  console.log("agr1");
 }
 
 for(const point of agr2){
-  if(agr) point.y +=3;
+  if(agr > -1 && agr < 4 && agr > -1 && agr > 4) 
+  console.log("agr2");
 }
 
 for(const point of agr3){
-  if(agr) point.y +=3;
+  if(agr > -1 && agr < 4 && agr > -1 && agr > 4) 
+  console.log("agr3");
 }
+
+// generation next object
+
+
     
     let gameOver = false;
     
@@ -145,15 +152,23 @@ for(const point of agr3){
         else if (moveDirection === 'DOWN') point.y += 3;
         else if (moveDirection === 'LEFT') point.x -= 3;
         else if (moveDirection === 'UP') point.y -= 3;
-        
+        console.log("test keyboard");
         document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
         document.getElementById(`${point.y}  ${point.x}`).classList.add('card');
+     
         if (point.x <= leftBorderX || point.x >= rightBorderX) {
+         
           gameOver = true;
+          console.log("dialog window is end game");
         }
       }
       moveDirection = null;
     }
+
+//if(playerShape <= agr <= 0){
+  //alert("Game Over");
+  //location.reload();
+//}
 
     if (gameOver) {
       alert("Game Over");
@@ -164,26 +179,31 @@ for(const point of agr3){
     // render player    
     for (const point of playerShape) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      console.log("renderplayer");
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card');
     }
     // render agr player
     for (const point of agr) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      console.log("renderagr");
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card1');
     }
 
     for (const point of agr1) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      console.log("renderagr1");
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card2');
     }
 
     for (const point of agr2) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      console.log("renderagr2");
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card3');
     }
 
     for (const point of agr3) {
       document.getElementById(`${point.y}  ${point.x}`).classList.remove('areabox');
+      console.log("renderagr3");
       document.getElementById(`${point.y}  ${point.x}`).classList.add('card4');
     }
 
@@ -194,6 +214,7 @@ for(const point of agr3){
   setTimeout(render, 1000);
 
 }
+
 document.addEventListener('keydown', function (event) {
   if (event.key == 'ArrowRight') moveDirection = 'RIGHT';
   else if (event.key == 'ArrowDown') moveDirection = 'DOWN';
