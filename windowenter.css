@@ -81,6 +81,13 @@ html, body {
   left: 550px;
 }
 
+.point3 {
+  position: absolute;
+  top: 12px;
+  right: 1220px;
+  left: 900px;
+}
+
 .op {
 
   text-align: center;
@@ -117,6 +124,20 @@ html, body {
   text-transform: uppercase;
 }
 
+.op3{
+  text-align: center;
+  padding: 300px 600px;
+}
+
+.op3 .point3 {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 50px;
+  color: #FFF;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
 .areabox {
 
   border: 1px solid #808080;
@@ -124,4 +145,18 @@ html, body {
   height: 18px;
   background: black;
   display: block;
+}
+
+.button {
+
+  margin-left: 60px;
+  margin-top: 30px;
+  width: 120px;
+  height: 80px;
+  font-size: 14px;
+ 
+  font-weight: 700;
+  
+  background: #beb6b6;
+
 }
